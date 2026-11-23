@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#071423">
+<meta name="color-scheme" content="dark">
+<title>Recal em 90 segundos · Apresentação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/fachada-recal.jpg?v=2">
+<style>
+/* =====================================================================
+   RECAL EM 90 SEGUNDOS · proposta v2 · linguagem "Aço e precisão" (DESIGN.md)
+   navy profundo + papel/cinza do site · verde para ação · menta só no escuro
+   ===================================================================== */
+:root{
+  --n9:#071423;--n8:#0b1d33;--n7:#102a47;--paper:#e6e4dd;--ink:#0b1d33;
+  --green:#1e9a52;--green-dk:#157a40;--mint:#9ff0bf;--mint-2:#3ee07f;--weld:#f2b200;
+  --head:'Barlow Condensed','Arial Narrow',sans-serif;--body:'Barlow',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);--pad:clamp(20px,4.4vw,72px);
+  --top:clamp(54px,8vh,78px);--bot:clamp(58px,9vh,84px);
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--n9);color:#fff;font-family:var(--body);overflow:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{touch-action:manipulation}
+body.idle{cursor:none}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+
+/* ---------- palco e cenas ---------- */
+.deck{position:fixed;inset:0;overflow:hidden;background:var(--n9)}
+.sc{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s var(--ease),visibility 0s .9s}
+.sc.on{opacity:1;visibility:visible;transition:opacity .9s var(--ease)}
+.stage{position:absolute;left:var(--pad);right:var(--pad);top:var(--top);bottom:var(--bot);display:flex;flex-direction:column;justify-content:center}
+
+/* entradas (reiniciam a cada cena) */
+.in{opacity:0}
+.sc.on .in{animation:up .9s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.sc.on .in--x{animation-name:fromL}
+@keyframes fromL{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+.ln{display:block;overflow:hidden;padding-bottom:.07em}
+.ln>span{display:block;transform:translateY(110%)}
+.sc.on .ln>span{animation:rise 1s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes rise{to{transform:none}}
+
+/* foto de fundo com zoom lento */
+.ph{position:absolute;inset:0;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.1)}
+.sc.on .ph img{animation:drift var(--t,9s) linear forwards}
+@keyframes drift{to{transform:scale(1)}}
+.ph--dark::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,20,35,.94) 0%,rgba(7,20,35,.72) 45%,rgba(7,20,35,.25) 100%),linear-gradient(0deg,rgba(7,20,35,.9),transparent 50%)}
+
+/* tipografia comum */
+.idx{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:clamp(11px,1.05vw,14px);letter-spacing:.22em;text-transform:uppercase;color:var(--mint);margin-bottom:clamp(14px,2.6vh,26px)}
+.idx b{font-weight:500;color:#fff}
+.idx::after{content:"";width:56px;height:1px;background:currentColor;opacity:.6}
+.h{font-family:var(--head);font-weight:800;line-height:.94;letter-spacing:-.012em;font-size:clamp(44px,min(6.6vw,11vh),112px)}
+.h em{font-style:normal;color:var(--mint)}
+.h--lg{font-size:clamp(52px,min(8.4vw,14vh),148px)}
+.lead{font-size:clamp(16px,min(1.55vw,2.7vh),23px);line-height:1.5;color:rgba(255,255,255,.76);max-width:40ch;margin-top:clamp(14px,2.8vh,28px)}
+.lead b{color:#fff;font-weight:600}
+.src{font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+
+/* moldura técnica (cantos em colchete) */
+.frame{position:absolute;inset:clamp(14px,2vw,28px);pointer-events:none;z-index:3}
+.frame i{position:absolute;width:30px;height:30px;border:1.5px solid rgba(159,240,191,.7)}
+.frame i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}
+.frame i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
+.frame i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}
+.frame i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
+
+/* ---------- 01 · abertura ---------- */
+.s1 .ph img{object-position:100% 50%}
+.s1 .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,20,35,.92) 0%,rgba(7,20,35,.6) 42%,rgba(7,20,35,.15) 75%),linear-gradient(0deg,rgba(7,20,35,.95) 6%,transparent 60%)}
+.s1 .stage{justify-content:flex-end;padding-bottom:2vh}
+.s1 .logo{width:clamp(64px,7vw,96px);margin-bottom:2.6vh}
+.logo circle{fill:var(--green);transform-origin:center;transform:scale(0)}
+.logo .arr{fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
+.logo text{opacity:0}
+.sc.on .logo circle{animation:pop .7s var(--ease) .2s forwards}
+.sc.on .logo .arr{animation:dash .9s var(--ease) .7s forwards}
+.sc.on .logo text{animation:fade .5s 1.2s forwards}
+@keyframes pop{to{transform:scale(1)}}@keyframes dash{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}
+.s1 .h{font-size:clamp(84px,min(15vw,24vh),250px);letter-spacing:.02em;line-height:.82}
+.s1__sub{font-family:var(--head);font-weight:600;font-size:clamp(22px,min(3vw,5vh),46px);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.86);margin-top:1.4vh}
+.weld{position:relative;height:2px;margin:2.6vh 0 2.2vh;max-width:min(980px,100%);background:rgba(255,255,255,.12);overflow:hidden}
+.weld i{position:absolute;inset:0;width:0;background:linear-gradient(90deg,var(--mint),var(--weld));box-shadow:0 0 16px 3px rgba(242,178,0,.55)}
+.sc.on .weld i{animation:weld 1.8s var(--ease) 1.3s forwards}
+@keyframes weld{to{width:100%}}
+.meta{display:flex;flex-wrap:wrap;gap:10px 0;font-family:var(--mono);font-size:clamp(11px,1.1vw,15px);letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.meta span{padding-right:22px;margin-right:22px;border-right:1px solid rgba(255,255,255,.22)}
+.meta span:last-child{border:0;margin:0;padding:0}
+
+/* ---------- 02 · manifesto (cinza + azul, igual à primeira tela do site) ---------- */
+.s2{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
+.s2__l{position:relative;background:var(--paper);padding:calc(var(--top) + 2vh) clamp(20px,3vw,48px) calc(var(--bot) + 2vh) var(--pad);display:flex}
+.s2__card{position:relative;flex:1;border-radius:8px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(7,20,35,.55);outline:1px solid rgba(7,20,35,.08)}
+.s2__card img{width:100%;height:100%;object-fit:cover;object-position:35% 40%;transform:scale(1.08)}
+.sc.on .s2__card img{animation:drift 7s linear forwards}
+.tag38{position:absolute;left:18px;bottom:18px;background:var(--n8);color:#fff;padding:14px 18px;border-radius:6px}
+.tag38 b{display:block;font-family:var(--head);font-size:clamp(28px,3vw,42px);line-height:1;color:var(--mint)}
+.tag38 span{font-size:13px;color:rgba(255,255,255,.75)}
+.s2__r{position:relative;background:var(--n9);display:flex;flex-direction:column;justify-content:center;padding:var(--top) var(--pad) var(--bot) clamp(28px,5vw,90px)}
+.s2__r .h{font-size:clamp(40px,min(5.2vw,10vh),96px)}
+.s2__r .h .ln{white-space:nowrap}
+.s2__r .h .ln:nth-child(2){color:var(--mint)}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,3.4vh,34px)}
+.pills span{padding:9px 16px;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-family:var(--mono);font-size:clamp(11px,.95vw,13px);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+
+/* ---------- 03 · desafio ---------- */
+.strike{position:relative;display:inline-block;color:rgba(255,255,255,.55)}
+.strike::after{content:"";position:absolute;left:-2%;top:54%;height:.09em;width:0;background:var(--weld);box-shadow:0 0 14px rgba(242,178,0,.6)}
+.sc.on .strike::after{animation:strk .55s var(--ease) 1.5s forwards}
+@keyframes strk{to{width:104%}}
+.ticks{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:clamp(20px,4vh,40px)}
+.ticks span{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;font-size:clamp(20px,2vw,30px)}
+.ticks svg{width:26px;height:26px;fill:none;stroke:var(--mint);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- 04 · capacidade (ficha técnica) ---------- */
+.bp{position:absolute;inset:0;background-image:linear-gradient(rgba(159,240,191,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(159,240,191,.035) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 70% 40%,#000,transparent 75%)}
+.head2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:4vw;align-items:end}
+.head2 .lead{margin:0 0 .4em}
+.spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(22px,5vh,54px);border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
+.spec>div{position:relative;padding:clamp(18px,3.4vh,34px) clamp(14px,1.8vw,28px);border-left:1px solid rgba(255,255,255,.12)}
+.spec>div:first-child{border-left:0;padding-left:0}
+.spec>div::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--mint)}
+.sc.on .spec>div::before{animation:bar 1.2s var(--ease) forwards;animation-delay:calc(var(--d,0s) + .3s)}
+@keyframes bar{to{width:100%}}
+.spec small{display:block;font-family:var(--mono);font-size:clamp(10px,.9vw,12.5px);letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.spec b{display:block;margin-top:clamp(10px,2vh,20px);font-family:var(--head);font-weight:800;font-size:clamp(46px,min(6vw,11vh),104px);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.spec b u{text-decoration:none;font-size:.4em;color:var(--mint);margin-left:6px;letter-spacing:0}
+.spec h3{font-family:var(--head);font-weight:700;font-size:clamp(19px,1.8vw,27px);margin-top:clamp(8px,1.6vh,14px)}
+.spec p{font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.62);margin-top:4px;line-height:1.4}
+.spec .src{margin-top:0}
+.foot-src{margin-top:clamp(12px,2.4vh,22px)}
+
+/* ---------- 05 · serviços ---------- */
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,32px);margin-top:clamp(26px,6vh,64px)}
+.svc>div{position:relative;padding-top:clamp(16px,3vh,28px)}
+.svc>div::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--mint);box-shadow:0 0 10px rgba(159,240,191,.5)}
+.sc.on .svc>div::before{animation:bar 1s var(--ease) forwards;animation-delay:calc(var(--d,0s) + .2s)}
+.svc>div::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(255,255,255,.16)}
+.svc i{display:block;font-style:normal;font-family:var(--head);font-weight:800;font-size:clamp(54px,min(6vw,10vh),100px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px rgba(159,240,191,.75)}
+.svc h3{font-family:var(--head);font-weight:700;font-size:clamp(24px,min(2.4vw,4.4vh),38px);line-height:1.02;margin-top:clamp(12px,2.4vh,24px)}
+.svc p{margin-top:clamp(8px,1.4vh,12px);font-size:clamp(13px,1.15vw,17px);line-height:1.45;color:rgba(255,255,255,.66)}
+.svc ul{list-style:none;padding:0;margin-top:clamp(10px,2vh,18px);display:grid;gap:6px;font-family:var(--mono);font-size:clamp(10px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--mint)}
+
+/* ---------- 06 · peças (duas por tela) ---------- */
+.s6 .stage{justify-content:flex-start}
+.pg-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.pg-head .idx{margin-bottom:clamp(10px,1.8vh,18px)}
+.pg-head .h{font-size:clamp(34px,min(4.4vw,8vh),72px)}
+.pg-dots{display:flex;align-items:center;gap:8px;padding-bottom:.6em;font-family:var(--mono);font-size:clamp(11px,1vw,14px);letter-spacing:.16em;color:rgba(255,255,255,.55)}
+.pg-dots span{margin-right:10px;font-variant-numeric:tabular-nums}
+.pg-dots span b{font-weight:500;color:var(--mint)}
+.pg-dots i{display:block;width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);transition:width .4s var(--ease),background .4s}
+.pg-dots i.on{width:52px;background:var(--mint)}
+.pairs{position:relative;flex:1;min-height:0;margin-top:clamp(16px,3vh,32px)}
+.pair{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,2.2vw,36px);opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility 0s .7s}
+.pair.on{opacity:1;visibility:visible;transition:opacity .7s var(--ease)}
+.card{display:flex;flex-direction:column;min-height:0}
+.pair.on .card{animation:up .8s var(--ease) both}
+.pair.on .card:nth-child(2){animation-delay:.15s}
+.card__ph{position:relative;flex:1;min-height:0;border-radius:8px;overflow:hidden;outline:1px solid rgba(255,255,255,.12);box-shadow:0 34px 60px -36px rgba(0,0,0,.9)}
+.card__ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.07)}
+.pair.on .card__ph img{animation:drift 5.6s linear forwards}
+.card__ph b{position:absolute;left:14px;top:14px;padding:6px 10px;border-radius:4px;background:rgba(7,20,35,.82);backdrop-filter:blur(6px);font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.14em;color:var(--mint)}
+.card__tx{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:clamp(12px,2vh,18px) 2px 0;border-top:0}
+.card__tx h3{font-family:var(--head);font-weight:800;font-size:clamp(24px,min(2.5vw,4.6vh),42px);line-height:1;letter-spacing:-.005em}
+.card__tx small{flex:none;font-family:var(--mono);font-size:clamp(10px,.9vw,12.5px);letter-spacing:.16em;text-transform:uppercase;color:var(--mint)}
+
+/* ---------- 07 · processo ---------- */
+.proc{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:clamp(26px,6vh,60px)}
+.proc__line{position:absolute;left:0;right:0;top:27px;height:2px;background:rgba(255,255,255,.14)}
+.proc__line i{position:absolute;inset:0;width:0;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.sc.on .proc__line i{animation:bar 4.4s linear .5s forwards}
+.proc>div{position:relative;padding-right:clamp(10px,1.4vw,24px)}
+.proc b{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:2px solid var(--mint);background:var(--n9);font-family:var(--mono);font-weight:500;font-size:15px;color:var(--mint);position:relative}
+.sc.on .proc b{animation:dot .35s forwards;animation-delay:var(--f)}
+@keyframes dot{to{background:var(--mint);color:var(--n9);box-shadow:0 0 0 8px rgba(159,240,191,.14)}}
+.proc h3{font-family:var(--head);font-weight:700;font-size:clamp(22px,min(2.2vw,4vh),34px);margin-top:clamp(12px,2.4vh,22px)}
+.proc p{margin-top:6px;font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.64);line-height:1.4}
+.proof{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(16px,2.4vw,36px);align-items:center;margin-top:clamp(26px,5.4vh,56px)}
+.seal{display:flex;align-items:center;gap:16px;padding:16px 22px;border:1px solid rgba(159,240,191,.4);border-radius:8px;background:rgba(159,240,191,.05)}
+.seal svg{width:46px;height:46px;fill:none;stroke:var(--mint);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.seal b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(24px,2.4vw,36px);line-height:1}
+.seal span{font-size:clamp(12px,1vw,15px);color:rgba(255,255,255,.7)}
+.proof__ph{display:flex;align-items:center;gap:18px}
+.proof__ph img{width:clamp(110px,12vw,190px);aspect-ratio:3/2;object-fit:cover;border-radius:6px;outline:1px solid rgba(255,255,255,.15)}
+.proof__ph p{font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.7);max-width:34ch;line-height:1.45}
+
+/* ---------- 08 · setores e clientes ---------- */
+.s8 .stage{align-content:center;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,5vw,90px);align-items:center}
+.sect{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:clamp(20px,4vh,40px)}
+.sect span{display:flex;align-items:center;gap:14px;padding:clamp(12px,2vh,18px) 18px;border:1px solid rgba(255,255,255,.14);border-radius:6px;font-family:var(--head);font-weight:700;font-size:clamp(20px,2vw,30px)}
+.sect span i{font-style:normal;font-family:var(--mono);font-weight:500;font-size:12px;color:var(--mint)}
+.logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1vw,14px)}
+.logos div{display:grid;place-items:center;background:#fff;border-radius:6px;height:clamp(64px,12vh,118px);padding:14px 22px;box-shadow:0 20px 40px -26px rgba(0,0,0,.7)}
+.logos img{max-height:clamp(30px,6vh,58px);max-width:82%;width:auto;object-fit:contain}
+.logos .key{grid-column:span 2;height:clamp(76px,14vh,140px)}
+.logos .key img{max-height:clamp(40px,8vh,74px)}
+.logos-cap{margin-top:12px}
+
+/* ---------- 09 · pessoas e planeta ---------- */
+.s9 .stage{align-content:center;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,5vw,90px);align-items:center}
+.duo{position:relative;height:min(64vh,640px)}
+.duo>img{position:absolute;left:0;top:0;width:74%;height:88%;object-fit:cover;border-radius:8px;object-position:40% 45%}
+.duo figure{position:absolute;right:0;bottom:0;width:44%;height:58%;border-radius:8px;overflow:hidden;border:6px solid var(--n9);box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.duo figure img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:clamp(20px,4vh,40px);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden}
+.chips div{background:var(--n9);padding:clamp(14px,2.6vh,24px) clamp(14px,1.6vw,24px)}
+.chips b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(32px,min(3.6vw,6.4vh),58px);line-height:1;color:var(--mint)}
+.chips span{display:block;margin-top:6px;font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.72)}
+
+/* ---------- 10 · contato ---------- */
+.s10 .stage{align-content:center;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(28px,5vw,90px);align-items:center}
+.contact{list-style:none;padding:0;margin-top:clamp(20px,4.4vh,44px);display:grid;gap:12px}
+.contact li{display:flex;align-items:center;gap:14px;font-size:clamp(16px,1.6vw,23px)}
+.contact svg{width:24px;height:24px;flex:none;fill:none;stroke:var(--mint);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.qr{justify-self:end;width:min(100%,340px);background:#fff;color:var(--ink);border-radius:12px;padding:clamp(16px,2vw,24px);text-align:center;box-shadow:0 0 0 10px rgba(159,240,191,.1),0 40px 80px -30px rgba(0,0,0,.75)}
+.sc.on .qr{animation:up .9s var(--ease) .6s both}
+.qr__code{position:relative;overflow:hidden}
+.qr__code img{width:100%;image-rendering:pixelated}
+.qr__code::after{content:"";position:absolute;left:0;right:0;height:16%;top:-20%;background:linear-gradient(180deg,transparent,rgba(30,154,82,.35),transparent);animation:scan 2.6s ease-in-out infinite}
+@keyframes scan{to{top:104%}}
+.qr b{display:block;font-family:var(--head);font-weight:700;font-size:clamp(20px,1.9vw,27px);line-height:1.1;margin-top:12px}
+.qr span{display:block;margin-top:4px;font-size:13px;color:#4b5a66}
+
+/* ---------- interface ---------- */
+.chap{position:fixed;left:var(--pad);right:var(--pad);top:max(14px,env(safe-area-inset-top));z-index:20;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:8px}
+.chap button{all:unset;cursor:pointer;display:block;padding:8px 0 6px}
+.chap button i{display:block;height:3px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.chap button i b{display:block;height:100%;width:0;background:#fff}
+.chap button.done i b{width:100%}
+.chap button span{display:block;margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.42);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.chap button.cur span{color:#fff}
+.chap button:focus-visible{outline:2px solid var(--mint);outline-offset:2px;border-radius:2px}
+.brand{position:fixed;left:var(--pad);bottom:max(18px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:12px}
+.brand svg{width:34px;height:34px}
+.brand>span{display:flex;flex-direction:column;line-height:1;font-family:var(--head);font-weight:700;letter-spacing:.08em;font-size:16px}
+.brand small{font-family:var(--body);font-weight:500;letter-spacing:.04em;font-size:11px;color:rgba(255,255,255,.65);margin-top:3px}
+.brand>.clock{display:block;line-height:1.2;letter-spacing:.14em;font-weight:400}
+.clock{margin-left:18px;padding-left:18px;border-left:1px solid rgba(255,255,255,.22);font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--mint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.clock em{font-style:normal;color:rgba(255,255,255,.45)}
+.ctrl{position:fixed;right:var(--pad);bottom:max(14px,env(safe-area-inset-bottom));z-index:20;display:flex;gap:8px;transition:opacity .4s}
+body.idle .ctrl{opacity:0}
+.ctrl button,.ctrl a{min-width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(7,20,35,.6);backdrop-filter:blur(8px);color:#fff;display:grid;place-items:center;cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s}
+.ctrl button:hover,.ctrl a:hover{background:var(--green);border-color:var(--green)}
+.ctrl svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ctrl .exit{display:flex;gap:8px;padding:0 18px 0 14px;font-weight:600;font-size:14px}
+.tap{position:fixed;top:12vh;bottom:14vh;z-index:10;width:28%;background:none;border:0;cursor:pointer}
+.tap--prev{left:0}.tap--next{right:0}
+.tap:focus-visible{outline:none}
+.paused{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);z-index:30;padding:14px 24px;border-radius:999px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);font-family:var(--mono);font-size:13px;letter-spacing:.14em;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none}
+body.is-paused .sc *,body.is-paused .sc *::before,body.is-paused .sc *::after{animation-play-state:paused!important}
+body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
+.sweep{position:fixed;top:0;bottom:0;left:-2%;width:2px;z-index:15;background:var(--mint);box-shadow:0 0 24px 6px rgba(159,240,191,.4);opacity:0;pointer-events:none}
+.sweep.go{animation:sweep .9s var(--ease)}
+@keyframes sweep{0%{left:-1%;opacity:1}100%{left:101%;opacity:0}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- telas menores / tablet em pé ---------- */
+@media (max-width:1100px){.chap button span{display:none}}
+@media (max-aspect-ratio:1/1),(max-width:760px){
+  .s2{grid-template-columns:1fr;grid-template-rows:42% 58%}
+  .s2__l{padding:calc(var(--top) + 1vh) var(--pad) 2vh}
+  .s2__r{padding:3vh var(--pad) var(--bot)}
+  .head2,.s8 .stage,.s9 .stage,.s10 .stage{grid-template-columns:1fr;gap:3vh}
+  .spec{grid-template-columns:1fr 1fr}
+  .spec>div:nth-child(3){border-left:0;padding-left:0}
+  .spec>div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}
+  .svc{grid-template-columns:1fr 1fr;row-gap:3vh}
+  .proc{grid-template-columns:1fr;gap:2vh}
+  .proc__line{display:none}
+  .proc>div{display:grid;grid-template-columns:56px 1fr;column-gap:16px;align-items:center}
+  .proc b{grid-row:span 2}.proc h3{margin:0}
+  .proof{grid-template-columns:1fr}
+  .duo{height:30vh}
+  .qr{justify-self:start;width:min(100%,240px)}
+  .s9 .lead,.s8 .lead{display:none}
+  .pair{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:2vh}
+  .card__tx{padding-top:1vh}
+  .card__tx h3{font-size:clamp(20px,5.4vw,30px)}
+  .pg-dots i{width:18px}.pg-dots i.on{width:34px}
+  .pg-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .pg-head .h{font-size:clamp(30px,8.6vw,44px)}
+  .pg-head .idx,.pg-dots span{white-space:nowrap}
+  .pg-dots{padding-bottom:0}
+}
+@media (max-width:760px){
+  .svc p,.svc ul,.proc p,.proof__ph,.clock,.brand small,.ctrl .exit span{display:none}
+  .meta span{padding-right:12px;margin-right:12px}
+  .logos div{height:9vh}.logos .key{height:10vh}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}
+  .qr__code::after{display:none}
+}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+  <h1 class="sr">Recal Estruturas e Caldeiraria · apresentação em 90 segundos</h1>
+
+  <!-- 01 · abertura -->
+  <section class="sc s1" data-dur="6000" data-name="Abertura" aria-label="Abertura">
+    <div class="ph" style="--t:7s"><img src="img/fachada-recal.jpg?v=2" alt="" width="2000" height="667"></div>
+    <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="stage">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="32"/>
+        <path class="arr" d="M17 24a17 17 0 0 1 29-5M47 13l-1 7-7-1"/>
+        <path class="arr" d="M47 40a17 17 0 0 1-29 5M17 51l1-7 7 1"/>
+        <text x="32" y="38" text-anchor="middle" font-family="Barlow, Arial" font-weight="700" font-size="16" fill="#fff">Recal</text>
+      </svg>
+      <p class="h" translate="no"><span class="ln"><span style="--d:.9s">RECAL</span></span></p>
+      <p class="s1__sub in" style="--d:1.3s">Estruturas e Caldeiraria</p>
+      <div class="weld" aria-hidden="true"><i></i></div>
+      <div class="meta in" style="--d:2s"><span>Desde 2003</span><span>Ipatinga · Vale do Aço</span><span>ISO 9001:2015</span></div>
+    </div>
+  </section>
+
+  <!-- 02 · manifesto -->
+  <section class="sc s2" data-dur="6000" data-name="Quem somos" aria-label="Quem somos">
+    <div class="s2__l">
+      <div class="s2__card in" style="--d:.1s">
+        <img src="img/equipe/equipe-projeto-nitida.jpg" alt="Dois colaboradores da Recal, com capacete e óculos, analisando um desenho técnico" width="1391" height="1467">
+        <div class="tag38"><b>38%</b><span>da equipe formada dentro da Recal</span></div>
+      </div>
+    </div>
+    <div class="s2__r">
+      <p class="idx in"><b>02</b> Quem somos</p>
+      <h2 class="h"><span class="ln"><span style="--d:.25s">Força para fabricar.</span></span><span class="ln"><span style="--d:.45s">Precisão para entregar.</span></span></h2>
+      <p class="lead in" style="--d:1s">Mais de 20 anos fabricando caldeiraria pesada no Vale do Aço, ao lado das maiores usinas do país.</p>
+      <div class="pills in" style="--d:1.3s"><span>Siderurgia</span><span>Mineração</span><span>Energia</span><span>Fertilizantes</span></div>
+    </div>
+  </section>
+
+  <!-- 03 · desafio -->
+  <section class="sc s3" data-dur="7000" data-name="O desafio" aria-label="O desafio">
+    <div class="ph ph--dark" style="--t:8s"><img src="img/obras-hd/roda-cacambas.jpg" alt="" width="1200" height="820"></div>
+    <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="stage">
+      <p class="idx in"><b>03</b> O seu desafio</p>
+      <h2 class="h h--lg"><span class="ln"><span style="--d:.2s">Equipamento</span></span><span class="ln"><span style="--d:.4s"><span class="strike">parado</span></span></span><span class="ln"><span style="--d:.6s">custa <em>caro</em>.</span></span></h2>
+      <p class="lead in" style="--d:1.9s">Fabricamos e recuperamos equipamentos com <b>foco em emergências</b>, para a sua planta voltar a operar no menor prazo.</p>
+      <div class="ticks in" style="--d:2.3s">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Fabricação</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Recuperação</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Emergências</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · capacidade -->
+  <section class="sc s4" data-dur="9000" data-name="Capacidade" aria-label="Capacidade">
+    <div class="bp" aria-hidden="true"></div>
+    <div class="stage">
+      <div class="head2">
+        <div>
+          <p class="idx in"><b>04</b> Capacidade instalada</p>
+          <h2 class="h"><span class="ln"><span style="--d:.15s">Estrutura para</span></span><span class="ln"><span style="--d:.3s"><em>grande porte</em>.</span></span></h2>
+        </div>
+        <p class="lead in" style="--d:.7s">Galpão, prensa, calandra e içamento dimensionados para peças de grande porte e chapas grossas.</p>
+      </div>
+      <div class="spec">
+        <div class="in" style="--d:.5s"><small>01 · Área</small><b data-to="4965">0<u>m²</u></b><h3>Área total</h3><p>2.695 m² construídos</p></div>
+        <div class="in" style="--d:.65s"><small>02 · Conformação</small><b data-to="500">0<u>t</u></b><h3>Prensa hidráulica</h3><p>Conformação de chapas grossas</p></div>
+        <div class="in" style="--d:.8s"><small>03 · Calandragem</small><b data-to="38.1" data-dec="1">0<u>mm</u></b><h3>Calandra</h3><p>Chapas até 38,1 × 2.550 mm</p></div>
+        <div class="in" style="--d:.95s"><small>04 · Içamento</small><b data-to="15">0<u>t</u></b><h3>Pontes rolantes</h3><p>Capacidades de 15 t e 10 t</p></div>
+      </div>
+      <p class="src foot-src in" style="--d:1.3s">Fonte: Relatório de Sustentabilidade Recal 2023</p>
+    </div>
+  </section>
+
+  <!-- 05 · serviços -->
+  <section class="sc s5" data-dur="8000" data-name="O que fazemos" aria-label="O que fazemos">
+    <div class="stage">
+      <p class="idx in"><b>05</b> O que fazemos</p>
+      <h2 class="h"><span class="ln"><span style="--d:.15s">Do desenho do cliente</span></span><span class="ln"><span style="--d:.3s">à <em>peça entregue</em>.</span></span></h2>
+      <div class="svc">
+        <div class="in" style="--d:.55s"><i aria-hidden="true">01</i><h3>Caldeiraria pesada, média e leve</h3><p>Conjuntos soldados de grande porte, tanques e cones antidesgaste.</p><ul><li>Corte · calandragem</li><li>Soldagem qualificada</li></ul></div>
+        <div class="in" style="--d:.7s"><i aria-hidden="true">02</i><h3>Dutos e peças flangeadas</h3><p>Curvas, derivações em Y e peças de distribuição.</p><ul><li>Grande diâmetro</li><li>Revestimento interno</li></ul></div>
+        <div class="in" style="--d:.85s"><i aria-hidden="true">03</i><h3>Estruturas metálicas</h3><p>Fabricação e montagem de estruturas, bases e anéis estruturais.</p><ul><li>Fabricação</li><li>Montagem em campo</li></ul></div>
+        <div class="in" style="--d:1s"><i aria-hidden="true">04</i><h3>Fabricação e recuperação</h3><p>Peças novas e recuperação de equipamentos, com foco em emergências.</p><ul><li>Peças de reposição</li><li>Atendimento rápido</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · peças -->
+  <section class="sc s6" data-gallery data-name="Peças reais" aria-label="Peças fabricadas pela Recal">
+    <div class="bp" aria-hidden="true"></div>
+    <div class="stage">
+      <div class="pg-head">
+        <div>
+          <p class="idx in"><b>06</b> Feito no nosso galpão</p>
+          <h2 class="h"><span class="ln"><span style="--d:.15s">Peças que já <em>saíram daqui</em>.</span></span></h2>
+        </div>
+        <div class="pg-dots in" id="pgDots" style="--d:.4s" aria-hidden="true"></div>
+      </div>
+      <div class="pairs" id="pairs"></div>
+    </div>
+  </section>
+
+  <!-- 07 · processo -->
+  <section class="sc s7" data-dur="9000" data-name="Processo" aria-label="Processo e qualidade">
+    <div class="stage">
+      <p class="idx in"><b>07</b> Processo e qualidade</p>
+      <h2 class="h"><span class="ln"><span style="--d:.15s">Começa no desenho.</span></span><span class="ln"><span style="--d:.3s">Termina com <em>relatório</em>.</span></span></h2>
+      <div class="proc">
+        <span class="proc__line" aria-hidden="true"><i></i></span>
+        <div class="in" style="--d:.5s;--f:.6s"><b>01</b><h3>Diagnóstico</h3><p>Visita técnica e levantamento de campo.</p></div>
+        <div class="in" style="--d:.6s;--f:1.6s"><b>02</b><h3>Projeto</h3><p>Detalhamento e lista de materiais.</p></div>
+        <div class="in" style="--d:.7s;--f:2.6s"><b>03</b><h3>Fabricação</h3><p>Corte, calandragem e soldagem.</p></div>
+        <div class="in" style="--d:.8s;--f:3.6s"><b>04</b><h3>Inspeção</h3><p>Controle e relatório dimensional.</p></div>
+        <div class="in" style="--d:.9s;--f:4.6s"><b>05</b><h3>Entrega</h3><p>Logística e montagem em campo.</p></div>
+      </div>
+      <div class="proof in" style="--d:1.4s">
+        <div class="seal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l16 6v12c0 10-7 17-16 22-9-5-16-12-16-22V10z"/><path d="M17 24l5 5 9-10"/></svg><div><b>ISO 9001:2015</b><span>Gestão da qualidade certificada</span></div></div>
+        <div class="proof__ph"><img src="img/topografia.jpg" alt="Equipe da Recal, com capacete, fazendo medição dimensional de uma peça" width="1543" height="1019" loading="lazy"><p>Medição dimensional em cada peça antes de sair da fábrica.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · setores e clientes -->
+  <section class="sc s8" data-dur="8000" data-name="Clientes" aria-label="Setores e clientes">
+    <div class="stage">
+      <div>
+        <p class="idx in"><b>08</b> Para quem fazemos</p>
+        <h2 class="h"><span class="ln"><span style="--d:.15s">Caldeiraria para</span></span><span class="ln"><span style="--d:.3s">quem move o <em>país</em>.</span></span></h2>
+        <p class="lead in" style="--d:.7s">No coração do Vale do Aço, atendendo indústrias que não podem parar.</p>
+        <div class="sect">
+          <span class="in in--x" style="--d:.8s"><i>01</i>Siderurgia</span>
+          <span class="in in--x" style="--d:.9s"><i>02</i>Mineração</span>
+          <span class="in in--x" style="--d:1s"><i>03</i>Energia</span>
+          <span class="in in--x" style="--d:1.1s"><i>04</i>Fertilizantes</span>
+        </div>
+      </div>
+      <div>
+        <div class="logos">
+          <div class="key in" style="--d:.5s"><img src="img/clientes/usiminas-mineracao.png" alt="Usiminas Mineração" width="462" height="134" loading="lazy"></div>
+          <div class="in" style="--d:.6s"><img src="img/clientes/aperam.png" alt="Aperam" width="488" height="148" loading="lazy"></div>
+          <div class="in" style="--d:.7s"><img src="img/clientes/usiminas-unigal.png" alt="Unigal Usiminas" width="572" height="172" loading="lazy"></div>
+          <div class="in" style="--d:.8s"><img src="img/clientes/arcelormittal.png" alt="ArcelorMittal" width="444" height="190" loading="lazy"></div>
+          <div class="in" style="--d:.9s"><img src="img/clientes/mosaic.png" alt="Mosaic" width="420" height="156" loading="lazy"></div>
+          <div class="in" style="--d:1s"><img src="img/clientes/neoenergia.png" alt="Neoenergia" width="406" height="170" loading="lazy"></div>
+          <div class="in" style="--d:1.1s"><img src="img/clientes/sms-group.png" alt="SMS group" width="446" height="76" loading="lazy"></div>
+        </div>
+        <p class="src logos-cap in" style="--d:1.3s">Algumas empresas que já confiaram na Recal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · pessoas e planeta -->
+  <section class="sc s9" data-dur="7000" data-name="Pessoas" aria-label="Pessoas e planeta">
+    <div class="stage">
+      <div class="duo in" style="--d:.1s">
+        <img src="img/equipe/equipe-projeto-nitida.jpg" alt="Colaboradores da Recal com EPI analisando um desenho técnico" width="1391" height="1467" loading="lazy">
+        <figure><img src="img/equipe/colaboradora-sorrindo.jpg" alt="Colaboradora da Recal sorrindo" width="1131" height="1391" loading="lazy"></figure>
+      </div>
+      <div>
+        <p class="idx in"><b>09</b> Pessoas e planeta</p>
+        <h2 class="h"><span class="ln"><span style="--d:.2s">Gente que fica.</span></span><span class="ln"><span style="--d:.35s">Fábrica no <em>verde</em>.</span></span></h2>
+        <div class="chips in" style="--d:.8s">
+          <div><b>38%</b><span>da equipe formada dentro da Recal</span></div>
+          <div><b>20.000 m²</b><span>de área de preservação</span></div>
+          <div><b>ONU</b><span>signatária do Pacto Global</span></div>
+          <div><b>Solar</b><span>energia própria na fábrica</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · contato -->
+  <section class="sc s10" data-dur="9000" data-name="Contato" aria-label="Contato">
+    <div class="ph ph--dark" style="--t:10s"><img src="img/obras-hd/transporte-dutos.jpg" alt="" width="1200" height="730" loading="lazy"></div>
+    <div class="stage">
+      <div>
+        <p class="idx in"><b>10</b> Seja nosso cliente</p>
+        <h2 class="h h--lg"><span class="ln"><span style="--d:.15s">Nós resolvemos</span></span><span class="ln"><span style="--d:.35s">o seu <em>problema</em>.</span></span></h2>
+        <ul class="contact">
+          <li class="in" style="--d:.9s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>(31) 3821-2803 · WhatsApp (31) 99166-5958</li>
+          <li class="in" style="--d:1.05s"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>comercial@recalcaldeiraria.com.br</li>
+          <li class="in" style="--d:1.2s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>R. Tarcísio Sampaio, 195 · Distrito Industrial · Ipatinga/MG</li>
+        </ul>
+      </div>
+      <div class="qr">
+        <div class="qr__code"><img src="img/qr-whatsapp.svg" alt="QR code para falar com a Recal pelo WhatsApp (31) 99166-5958" width="512" height="512" loading="lazy"></div>
+        <b>Aponte a câmera e fale com a nossa engenharia</b>
+        <span>Abre o WhatsApp da Recal</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- interface -->
+<nav class="chap" id="chap" aria-label="Capítulos da apresentação"></nav>
+<button class="tap tap--prev" id="tapPrev" type="button" tabindex="-1" aria-label="Cena anterior"></button>
+<button class="tap tap--next" id="tapNext" type="button" tabindex="-1" aria-label="Próxima cena"></button>
+<div class="brand">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#1e9a52"/><path d="M17 24a17 17 0 0 1 29-5M47 13l-1 7-7-1M47 40a17 17 0 0 1-29 5M17 51l1-7 7 1" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span translate="no">RECAL<small>Estruturas e Caldeiraria</small></span>
+  <span class="clock" id="clock" aria-hidden="true">00:00 <em>/ 01:30</em></span>
+</div>
+<div class="ctrl">
+  <button id="btnPrev" type="button" aria-label="Cena anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button id="btnPlay" type="button" aria-label="Pausar"><svg viewBox="0 0 24 24" id="icoPlay" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button>
+  <button id="btnNext" type="button" aria-label="Próxima cena"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  <button id="btnFs" type="button" aria-label="Tela cheia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  <a class="exit" href="index.html" id="btnExit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>Voltar ao site</span></a>
+</div>
+<div class="sweep" id="sweep" aria-hidden="true"></div>
+<div class="paused" role="status">PAUSADO · TOQUE PARA CONTINUAR</div>
+<p class="sr" id="live" aria-live="polite"></p>
+
+<script>
+(() => {
+  const scenes = [...document.querySelectorAll('.sc')];
+  const body = document.body;
+
+  /* ---------- peças: duas por tela (fotos nítidas, sem condição insegura) ---------- */
+  const WORKS = [
+    ['roda-cacambas', 'Roda de caçambas', 'Mineração'],
+    ['distribuidor-multitubos', 'Distribuidor multitubos', 'Caldeiraria'],
+    ['duto-revestido', 'Duto com revestimento interno', 'Dutos'],
+    ['cone-antidesgaste', 'Cone antidesgaste', 'Mineração'],
+    ['derivacao-y', 'Derivação em Y', 'Dutos'],
+    ['anel-estrutural', 'Anel estrutural', 'Estruturas'],
+    ['peca-distribuicao', 'Peça de distribuição', 'Dutos'],
+    ['carcaca-usinada', 'Carcaça para mancais', 'Caldeiraria'],
+  ];
+  const GSTEP = 5250;                                   // 4 telas × 5,25 s = 21 s
+  const pairsEl = document.getElementById('pairs'), pgDots = document.getElementById('pgDots');
+  const NP = Math.ceil(WORKS.length / 2);
+  const pages = [];
+  for (let p = 0; p < NP; p++) {
+    const pg = document.createElement('div'); pg.className = 'pair';
+    pg.innerHTML = WORKS.slice(p * 2, p * 2 + 2).map(([f, t, c], k) => {
+      const n = String(p * 2 + k + 1).padStart(2, '0');
+      return `<figure class="card"><div class="card__ph"><img src="img/obras-hd/${f}.jpg" alt="${t}, fabricado pela Recal" decoding="async"><b>${n} / ${String(WORKS.length).padStart(2, '0')}</b></div><figcaption class="card__tx"><h3>${t}</h3><small>${c}</small></figcaption></figure>`;
+    }).join('');
+    pairsEl.appendChild(pg); pages.push(pg);
+  }
+  pgDots.innerHTML = `<span id="pgN"><b>01</b> / ${String(NP).padStart(2, '0')}</span>` + pages.map(() => '<i></i>').join('');
+  const dots = [...pgDots.querySelectorAll('i')], pgN = document.getElementById('pgN');
+  const galScene = document.querySelector('[data-gallery]');
+  galScene.dataset.dur = NP * GSTEP;
+  let gIdx = -1;
+  const showWork = i => {
+    if (i === gIdx) return; gIdx = i;
+    pages.forEach((p, k) => p.classList.toggle('on', k === i));
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    pgN.innerHTML = `<b>${String(i + 1).padStart(2, '0')}</b> / ${String(NP).padStart(2, '0')}`;
+  };
+
+  /* ---------- capítulos ---------- */
+  const chap = document.getElementById('chap');
+  const segs = scenes.map((s, k) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.setAttribute('aria-label', `Ir para ${s.dataset.name}`);
+    b.innerHTML = `<i><b></b></i><span>${String(k + 1).padStart(2, '0')} ${s.dataset.name}</span>`;
+    b.addEventListener('click', e => { e.stopPropagation(); go(k); });
+    chap.appendChild(b); return b;
+  });
+  const durs = scenes.map(s => +s.dataset.dur);
+  const starts = durs.map((d, i) => durs.slice(0, i).reduce((a, b) => a + b, 0));
+  const TOTAL = durs.reduce((a, b) => a + b, 0);          // 90 s
+  const clock = document.getElementById('clock');
+  const mmss = ms => { const s = Math.min(Math.round(ms / 1000), 5999); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
+
+  /* ---------- contadores ---------- */
+  const fmt = (v, d) => v.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const runCounters = sc => sc.querySelectorAll('[data-to]').forEach((el, k) => {
+    const to = +el.dataset.to, dec = +(el.dataset.dec || 0), unit = el.querySelector('u').outerHTML;
+    const t0 = performance.now() + 600 + k * 150;
+    const step = t => {
+      if (!sc.classList.contains('on')) return;
+      const q = Math.min(1, Math.max(0, (t - t0) / 1500));
+      el.innerHTML = fmt(to * (1 - Math.pow(1 - q, 4)), dec) + unit;
+      if (q < 1) requestAnimationFrame(step);
+    };
+    el.innerHTML = fmt(0, dec) + unit;
+    requestAnimationFrame(step);
+  });
+
+  /* ---------- motor (tempo fixo por cena) ---------- */
+  let cur = -1, elapsed = 0, last = performance.now(), paused = false;
+  const live = document.getElementById('live');
+  const go = i => {
+    i = (i + scenes.length) % scenes.length;
+    scenes.forEach((s, k) => { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+    const s = scenes[i]; s.classList.remove('on'); void s.offsetWidth; s.classList.add('on');
+    segs.forEach((g, k) => { g.classList.toggle('done', k < i); g.classList.toggle('cur', k === i); g.firstChild.firstChild.style.width = k < i ? '100%' : '0'; if (k === i) g.setAttribute('aria-current', 'step'); else g.removeAttribute('aria-current'); });
+    cur = i; elapsed = 0; gIdx = -1;
+    live.textContent = `Cena ${i + 1} de ${scenes.length}: ${s.dataset.name}`;
+    const sw = document.getElementById('sweep'); sw.classList.remove('go'); void sw.offsetWidth; if (i > 0) sw.classList.add('go');
+    runCounters(s);
+    if (s === galScene) showWork(0);
+  };
+  const loop = t => {
+    const dt = Math.min(t - last, 100); last = t;
+    if (!paused && cur >= 0) {
+      elapsed += dt;
+      segs[cur].firstChild.firstChild.style.width = Math.min(100, elapsed / durs[cur] * 100) + '%';
+      if (scenes[cur] === galScene) showWork(Math.min(NP - 1, Math.floor(elapsed / GSTEP)));
+      if (elapsed >= durs[cur]) go(cur + 1);
+    }
+    if (cur >= 0) clock.innerHTML = `${mmss(starts[cur] + elapsed)} <em>/ ${mmss(TOTAL)}</em>`;
+    requestAnimationFrame(loop);
+  };
+
+  /* ---------- controles ---------- */
+  const setPaused = p => {
+    paused = p; body.classList.toggle('is-paused', p);
+    document.getElementById('icoPlay').innerHTML = p ? '<path d="M8 5v14l11-7z"/>' : '<path d="M8 5v14M16 5v14"/>';
+    document.getElementById('btnPlay').setAttribute('aria-label', p ? 'Continuar' : 'Pausar');
+  };
+  const stop = fn => e => { e.stopPropagation(); fn(); };
+  document.getElementById('tapNext').onclick = stop(() => go(cur + 1));
+  document.getElementById('tapPrev').onclick = stop(() => go(cur - 1));
+  document.getElementById('btnNext').onclick = stop(() => go(cur + 1));
+  document.getElementById('btnPrev').onclick = stop(() => go(cur - 1));
+  document.getElementById('btnPlay').onclick = stop(() => setPaused(!paused));
+  document.getElementById('deck').addEventListener('click', () => setPaused(!paused));
+  addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(cur + 1);
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(cur - 1);
+    else if (e.key === ' ' && !e.target.closest('button,a')) { e.preventDefault(); setPaused(!paused); }
+    else if (e.key === 'f' || e.key === 'F') toggleFs();
+  });
+  let sx = null;
+  addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  addEventListener('touchend', e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 60) go(cur + (dx < 0 ? 1 : -1)); });
+  const toggleFs = () => {
+    const d = document, el = d.documentElement;
+    if (d.fullscreenElement || d.webkitFullscreenElement) (d.exitFullscreen || d.webkitExitFullscreen).call(d);
+    else (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el);
+  };
+  document.getElementById('btnFs').onclick = stop(toggleFs);
+  document.getElementById('btnExit').addEventListener('click', e => {
+    try { const r = new URL(document.referrer); if (r.origin === location.origin && history.length > 1) { e.preventDefault(); history.back(); } } catch (err) {}
+  });
+  const keepAwake = async () => { try { if ('wakeLock' in navigator) await navigator.wakeLock.request('screen'); } catch (e) {} };
+  keepAwake();
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') keepAwake(); });
+  let idleT;
+  const wake = () => { body.classList.remove('idle'); clearTimeout(idleT); idleT = setTimeout(() => body.classList.add('idle'), 3500); };
+  ['mousemove', 'touchstart', 'keydown'].forEach(ev => addEventListener(ev, wake, { passive: true }));
+  wake();
+
+  // pré-carrega e decodifica as fotos
+  document.querySelectorAll('.sc img').forEach(im => { if (im.decode) im.decode().catch(() => {}); });
+
+  // ?cena=N&pausa=1 (para revisão)
+  const q = new URLSearchParams(location.search);
+  go(Math.max(0, (+q.get('cena') || 1) - 1));
+  if (q.get('pausa')) setTimeout(() => setPaused(true), +q.get('pausa'));
+  window.recalGo = go;
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
