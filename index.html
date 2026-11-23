@@ -18,13 +18,13 @@
 <meta property="og:image:alt" content="Fachada da Recal Estruturas e Caldeiraria em Ipatinga - MG">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231e9a52'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='30' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg?v=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=34">
+<link rel="stylesheet" href="styles.css?v=35">
 <link rel="stylesheet" href="abertura.css?v=9">
-<link rel="stylesheet" href="hero.css?v=9">
+<link rel="stylesheet" href="hero.css?v=10">
 <link rel="stylesheet" href="design-v2.css?v=4">
 <link rel="stylesheet" href="fabricacao.css?v=9">
 </head>
@@ -39,7 +39,7 @@
       <span class="topbar__sep"></span>
       <a href="tel:+553138212803"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>(31) 3821-2803</a>
       <span class="topbar__sep"></span>
-      <span>Seg. a sex. · até 17h</span>
+      <span>Seg. a qui. 7h–17h · Sex. 7h–16h</span>
       <span class="topbar__sep"></span>
       <a href="https://www.instagram.com/recalcaldeiraria/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
     </span>
@@ -50,15 +50,8 @@
 <header class="header" id="header">
   <div class="container header__inner">
     <a href="#inicio" class="brand" aria-label="Recal — início">
-      <svg class="brand__logo" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="32" fill="#1e9a52"/>
-        <path d="M17 24a17 17 0 0 1 29-5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
-        <path d="M47 13l-1 7-7-1" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M47 40a17 17 0 0 1-29 5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
-        <path d="M17 51l1-7 7 1" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="32" y="38" text-anchor="middle" font-family="Barlow, Arial" font-weight="700" font-size="16" fill="#fff">Recal</text>
-      </svg>
-      <span class="brand__text"><strong>RECAL</strong><small>Estruturas e Caldeiraria</small></span>
+      <img class="brand__logo" src="img/logo-recal.svg?v=1" alt="Recal" width="598" height="391">
+      <span class="brand__text"><small>Estruturas e<br>Caldeiraria</small></span>
     </a>
 
     <nav class="nav" id="nav">
@@ -80,7 +73,7 @@
   <div class="hx2__left">
     <div class="hx2__crew">
       <figure class="hx2__p1"><img src="img/equipe/equipe-projeto-nitida.jpg" alt="Dois colaboradores da Recal sorrindo enquanto conferem um desenho técnico no galpão" width="1391" height="1467"></figure>
-      <div class="hx2__tag"><b>38%</b><span>da equipe formada<br>dentro da Recal</span></div>
+      <div class="hx2__tag hx2__tag--iso"><span class="iso__seal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.4 1.8 3-.1.9 2.8 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.8-3-.1L12 21.5l-2.4-1.8-3 .1-.9-2.8-2.4-1.8.9-2.8-.9-2.8 2.4-1.8.9-2.8 3 .1z"/><path d="M8.3 12.2l2.5 2.5 4.9-5"/></svg></span><span class="iso__tx"><small>Certificação</small><b>ISO 9001</b><em>Sistema de gestão da qualidade</em></span></div>
     </div>
     <div class="hx2__copy">
       <p class="hx2__k">Recal · Ipatinga · MG · desde 2003</p>
@@ -96,8 +89,7 @@
 <section class="sx" id="trabalhos">
   <div class="container">
     <div class="split">
-      <div><p class="idx">Trabalhos realizados</p><h2 class="h2">Peças que já saíram do <em>nosso galpão.</em></h2></div>
-      <p class="intro">Uma seleção do portfólio. Cada uma foi projetada, fabricada e inspecionada pela equipe da Recal.</p>
+      <h2 class="h2">Trabalhos <em>realizados.</em></h2>
     </div>
     <div class="bento">
       <figure class="b-xl"><img loading="lazy" width="1348" height="1167" src="img/obras/cone-antidesgaste.jpg" alt="Cone com revestimento antidesgaste fabricado pela Recal"><figcaption><small>Mineração</small><b>Cone com revestimento antidesgaste</b></figcaption></figure>
@@ -113,31 +105,6 @@
   </div>
 </section>
 
-<section class="lg" id="clientes" aria-labelledby="lgTitle">
-  <div class="container">
-    <div class="lg__head">
-      <div>
-        <p class="idx">Clientes</p>
-        <h2 class="h2" id="lgTitle">Quem confia na <em>Recal.</em></h2>
-      </div>
-      <p class="intro">Grandes nomes da siderurgia, mineração, energia e fertilizantes já contaram com a nossa caldeiraria.</p>
-    </div>
-    <ul class="lg__grid" role="list">
-        <li class="lg__cell lg__cell--key"><img width="462" height="134" src="img/clientes/usiminas-mineracao.png" alt="Mineração Usiminas" loading="lazy"></li>
-        <li class="lg__cell lg__cell--key"><img width="488" height="148" src="img/clientes/aperam.png" alt="Aperam" loading="lazy"></li>
-        <li class="lg__cell lg__cell--key"><img width="572" height="172" src="img/clientes/usiminas-unigal.png" alt="Unigal Usiminas" loading="lazy"></li>
-        <li class="lg__cell"><img width="444" height="190" src="img/clientes/arcelormittal.png" alt="ArcelorMittal" loading="lazy"></li>
-        <li class="lg__cell"><img width="446" height="76" src="img/clientes/sms-group.png" alt="SMS group" loading="lazy"></li>
-        <li class="lg__cell"><img width="406" height="170" src="img/clientes/neoenergia.png" alt="Neoenergia" loading="lazy"></li>
-        <li class="lg__cell"><img width="420" height="156" src="img/clientes/mosaic.png" alt="Mosaic Fertilizantes" loading="lazy"></li>
-        <li class="lg__cell"><img width="400" height="152" src="img/clientes/snef.png" alt="SNEF Brasil" loading="lazy"></li>
-    </ul>
-    <!-- Novos clientes: coloque aqui um <img src="img/clientes/ARQUIVO.png" alt="NOME">.
-         Quando houver mais logos que espaços na grade, eles passam a se alternar sozinhos. -->
-    <template id="lgPool"></template>
-    <div class="lg__sectors" aria-label="Setores atendidos"><span>Siderurgia</span><span>Mineração</span><span>Energia</span><span>Fertilizantes</span></div>
-  </div>
-</section>
 
 <!-- ============ OBRAS: DA CHAPA À PEÇA ============ -->
 <section class="section cone-intro" id="obras">
@@ -249,18 +216,18 @@
 <section class="sx sx--dark" id="capacidade">
   <div class="container">
     <div class="split">
-      <div><p class="idx">Capacidade instalada</p><h2 class="h2">Estrutura para projetos de <em>grande porte.</em></h2></div>
-      <p class="intro">Galpões com pontes rolantes, prensa, calandra e usinagem própria. Os números abaixo vêm do Relatório de Sustentabilidade da Recal.</p>
+      <div><p class="idx">Capacidade instalada</p></div>
+      <p class="intro">Galpões com pontes rolantes, prensas, calandras, máquinas CNC e usinagem própria.</p>
     </div>
     <div class="spec">
-      <div data-n="01"><b>4.965<small>m²</small></b><h3>Área total</h3><p>2.695 m² construídos, 2.015 m² de produção.</p><i>Fonte: Relatório 2023</i></div>
-      <div data-n="02"><b>500<small>t</small></b><h3>Prensa hidráulica</h3><p>Conformação de chapas grossas.</p><i>Fonte: Relatório 2023</i></div>
-      <div data-n="03"><b>38,1<small>mm</small></b><h3>Calandragem</h3><p>Chapas de até 38,1 mm × 2.550 mm.</p><i>Fonte: Relatório 2023</i></div>
-      <div data-n="04"><b>15<small>t</small></b><h3>Pontes rolantes</h3><p>Içamento de 15 t e 10 t nos novos galpões.</p><i>Fonte: Relatório 2023</i></div>
-      <div data-n="05"><b>CNC</b><h3>Usinagem de apoio</h3><p>Centro de usinagem Travis M-2000 e torno CNC.</p><i>Fonte: Relatório 2023</i></div>
-      <div data-n="06"><b>38<small>%</small></b><h3>Formados na Recal</h3><p>Profissionais capacitados dentro da própria empresa.</p><i>Fonte: Relatório 2023</i></div>
-      <div data-n="07"><b>20.000<small>m²</small></b><h3>Área de preservação</h3><p>Espécies nativas plantadas ao redor da fábrica.</p><i>Fonte: vídeo institucional</i></div>
-      <div data-n="08"><b>ISO</b><h3>9001:2015</h3><p>Projetos no sistema de qualidade, com relatório dimensional.</p><i>Fonte: vídeo institucional</i></div>
+      <div data-n="01"><b>5.000<small>m²</small></b><h3>Área total própria</h3><p>Galpões e área de produção próprios em Ipatinga.</p></div>
+      <div data-n="02"><b>500<small>t</small></b><h3>Prensa hidráulica</h3><p>Conformação de chapas grossas.</p></div>
+      <div data-n="03"><b class="b-pol">1"<small> e </small>1.1/2"</b><h3>Calandragem</h3><p>Calandras para chapas de 1" e de 1.1/2" (polegadas).</p></div>
+      <div data-n="04"><b>25<small>t</small></b><h3>Pontes rolantes</h3><p>Pontes rolantes de 16 t e 25 t para içamento.</p></div>
+      <div data-n="05"><b>CNC</b><h3>Usinagem de apoio</h3><p>Centro de usinagem Travis M-2000 e torno CNC.</p></div>
+      <div data-n="06"><b>38<small>%</small></b><h3>Formados na Recal</h3><p>Profissionais capacitados dentro da própria empresa.</p></div>
+      <div data-n="07"><b>20.000<small>m²</small></b><h3>Área de preservação</h3><p>Espécies nativas plantadas ao redor da fábrica.</p></div>
+      <div data-n="08"><b>ISO</b><h3>9001:2015</h3><p>Projetos no sistema de qualidade, com relatório dimensional.</p></div>
     </div>
   </div>
 </section>
@@ -269,15 +236,15 @@
   <div class="container">
     <div class="split">
       <div><p class="idx">Serviços</p><h2 class="h2">O que fabricamos para a <em>sua planta.</em></h2></div>
-      <p class="intro">Do desenho do cliente à peça entregue: fabricação, montagem e recuperação de equipamentos.</p>
+      <p class="intro">Do desenho do cliente à peça entregue: fabricação e recuperação de equipamentos.</p>
     </div>
     <ul class="sv2" role="list">
       <li class="sv2__card">
         <div class="sv2__top"><span class="sv2__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="12" y="8" width="24" height="32" rx="12"/><path d="M12 20h24M12 28h24M24 4v4M24 40v4"/></svg></span><span class="sv2__n">01</span></div>
-        <h3>Caldeiraria pesada, média e leve</h3>
+        <h3>Caldeiraria leve, média e pesada</h3>
         <p>Tanques, reservatórios, cones com revestimento antidesgaste, carcaças e conjuntos soldados sob medida, do porte leve ao pesado.</p>
-        <ul class="sv2__spec" role="list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Calandragem de chapas até 38,1 mm</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Prensa hidráulica de 500 t</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Relatório dimensional na entrega</li></ul>
-        <a class="sv2__link" href="#orcamento" aria-label="Solicitar orçamento de caldeiraria pesada, média e leve">Solicitar orçamento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <ul class="sv2__spec" role="list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Calandragem de chapas de 1" e 1.1/2"</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Prensa hidráulica de 500 t</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Relatório dimensional na entrega</li></ul>
+        <a class="sv2__link" href="#orcamento" aria-label="Solicitar orçamento de caldeiraria leve, média e pesada">Solicitar orçamento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </li>
       <li class="sv2__card">
         <div class="sv2__top"><span class="sv2__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M4 16h18a8 8 0 0 1 8 8v20M4 26h18M20 44V24"/><path d="M30 24h14M36 18v12"/></svg></span><span class="sv2__n">02</span></div>
@@ -290,7 +257,7 @@
         <div class="sv2__top"><span class="sv2__ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 42h36M10 42V14l14-8 14 8v28"/><path d="M10 14l28 28M38 14L10 42M10 28h28"/></svg></span><span class="sv2__n">03</span></div>
         <h3>Estruturas metálicas</h3>
         <p>Fabricação e montagem de estruturas e componentes estruturais, como bases e anéis de equipamentos e estruturas em caixão.</p>
-        <ul class="sv2__spec" role="list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Fabricação e montagem</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Pontes rolantes de 15 t e 10 t</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Conjuntos de grande porte</li></ul>
+        <ul class="sv2__spec" role="list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Fabricação e montagem</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Pontes rolantes de 16 t e 25 t</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Conjuntos de grande porte</li></ul>
         <a class="sv2__link" href="#orcamento" aria-label="Solicitar orçamento de estruturas metálicas">Solicitar orçamento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </li>
       <li class="sv2__card">
@@ -301,7 +268,7 @@
         <a class="sv2__link" href="#orcamento" aria-label="Solicitar orçamento de fabricação e recuperação">Solicitar orçamento <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </li>
     </ul>
-    <div class="svc__more"><div><h3>Tem um projeto diferente?</h3><p>Se é de aço e precisa de engenharia, nossa equipe avalia.</p></div><a class="btn btn--primary btn--lg" href="#orcamento">Falar com a engenharia</a></div>
+    <div class="svc__more"><div><h3>Tem um projeto diferente?</h3><p>Se é de aço e precisa de engenharia, nossa equipe avalia.</p></div><a class="btn btn--primary btn--lg" href="https://wa.me/5531984007404?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20a%20engenharia." target="_blank" rel="noopener">Falar com a engenharia</a></div>
   </div>
 </section>
 
@@ -477,13 +444,13 @@
           </div>
           <div class="emerg" id="emergNote" hidden>
             <svg viewBox="0 0 24 24"><path d="M12 3l10 18H2zM12 10v5M12 18h.01"/></svg>
-            <p><b>Atendimento a emergências é especialidade da Recal.</b> Para agilizar, ligue agora: <a href="tel:+553138212803">(31) 3821-2803</a> ou <a href="https://wa.me/5531991665958" target="_blank" rel="noopener">WhatsApp</a>.</p>
+            <p><b>Atendimento a emergências é especialidade da Recal.</b> Para agilizar, ligue agora: <a href="tel:+553138212803">(31) 3821-2803</a> ou chame o Comercial no <a href="https://wa.me/5531984028313" target="_blank" rel="noopener">WhatsApp (31) 98402-8313</a>.</p>
           </div>
           <div class="field"><span>Serviço *</span></div>
           <div class="options">
-            <label class="opt"><input type="radio" name="servico" value="Caldeiraria pesada, média e leve"><span>
+            <label class="opt"><input type="radio" name="servico" value="Caldeiraria leve, média e pesada"><span>
               <i class="opt__icon"><svg viewBox="0 0 48 48"><rect x="12" y="8" width="24" height="32" rx="12"/><path d="M12 20h24M12 28h24M24 4v4M24 40v4"/></svg></i>
-              <b>Caldeiraria</b><small>Pesada, média e leve</small></span></label>
+              <b>Caldeiraria</b><small>Leve, média e pesada</small></span></label>
             <label class="opt"><input type="radio" name="servico" value="Dutos e peças flangeadas"><span>
               <i class="opt__icon"><svg viewBox="0 0 48 48"><path d="M4 16h18a8 8 0 0 1 8 8v20M4 26h18M20 44V24"/><path d="M30 24h14M36 18v12"/></svg></i>
               <b>Dutos e curvas</b><small>Grande diâmetro, flangeados</small></span></label>
@@ -569,12 +536,12 @@
               Enviar pelo WhatsApp</button>
           </div>
         </div>
-        <p class="wizard__alt">Prefere falar agora? <a href="https://wa.me/5531991665958" target="_blank" rel="noopener">WhatsApp (31) 99166-5958</a> · <a href="tel:+553138212803">(31) 3821-2803</a></p>
+        <p class="wizard__alt">Prefere falar agora? <a href="https://wa.me/5531984028313" target="_blank" rel="noopener">WhatsApp Comercial (31) 98402-8313</a> · <a href="tel:+553138212803">(31) 3821-2803</a></p>
       </form>
 
       <aside class="sheet" aria-live="polite">
         <div class="sheet__head">
-          <div><small>SOLICITAÇÃO DE ORÇAMENTO</small><strong id="sheetId">RC-0000</strong></div>
+          <div><small>SOLICITAÇÃO DE ORÇAMENTO</small></div>
           <span class="sheet__live"><em class="live"></em>AO VIVO</span>
         </div>
         <div class="sheet__preview">
@@ -605,6 +572,32 @@
   </div>
 </section>
 
+<section class="lg" id="clientes" aria-labelledby="lgTitle">
+  <div class="container">
+    <div class="lg__head">
+      <div>
+        <p class="idx">Clientes</p>
+        <h2 class="h2" id="lgTitle">Quem confia na <em>Recal.</em></h2>
+      </div>
+      <p class="intro">Grandes nomes da siderurgia, mineração, energia e fertilizantes já contaram com a nossa caldeiraria.</p>
+    </div>
+    <ul class="lg__grid" role="list">
+        <li class="lg__cell lg__cell--key"><img width="462" height="134" src="img/clientes/usiminas-mineracao.png" alt="Mineração Usiminas" loading="lazy"></li>
+        <li class="lg__cell lg__cell--key"><img width="488" height="148" src="img/clientes/aperam.png" alt="Aperam" loading="lazy"></li>
+        <li class="lg__cell lg__cell--key"><img width="572" height="172" src="img/clientes/usiminas-unigal.png" alt="Unigal Usiminas" loading="lazy"></li>
+        <li class="lg__cell"><img width="444" height="190" src="img/clientes/arcelormittal.png" alt="ArcelorMittal" loading="lazy"></li>
+        <li class="lg__cell"><img width="446" height="76" src="img/clientes/sms-group.png" alt="SMS group" loading="lazy"></li>
+        <li class="lg__cell"><img width="406" height="170" src="img/clientes/neoenergia.png" alt="Neoenergia" loading="lazy"></li>
+        <li class="lg__cell"><img width="420" height="156" src="img/clientes/mosaic.png" alt="Mosaic Fertilizantes" loading="lazy"></li>
+        <li class="lg__cell"><img width="400" height="152" src="img/clientes/snef.png" alt="SNEF Brasil" loading="lazy"></li>
+    </ul>
+    <!-- Novos clientes: coloque aqui um <img src="img/clientes/ARQUIVO.png" alt="NOME">.
+         Quando houver mais logos que espaços na grade, eles passam a se alternar sozinhos. -->
+    <template id="lgPool"></template>
+    <div class="lg__sectors" aria-label="Setores atendidos"><span>Siderurgia</span><span>Mineração</span><span>Energia</span><span>Fertilizantes</span></div>
+  </div>
+</section>
+
 <section class="visit2" id="contato">
   <div class="visit2__photo"><img loading="lazy" width="2000" height="667" src="img/fachada-recal.jpg?v=2" alt="Fachada da Recal"></div>
   <div class="visit2__info">
@@ -612,13 +605,13 @@
     <h2 class="h2" style="color:#fff">Visite nossa <em style="color:var(--mint)">fábrica.</em></h2>
     <ul class="contacts">
       <li><small>Endereço</small><span>R. Tarcísio Sampaio, 195<br>Distrito Industrial · Ipatinga - MG</span></li>
-      <li><small>Horário</small><span>Segunda a sexta, até 17h</span><br><span class="open-badge" id="openBadge"></span></li>
-      <li><small>Telefone</small><a href="tel:+553138212803">(31) 3821-2803</a></li>
-      <li><small>WhatsApp</small><a href="https://wa.me/5531991665958" target="_blank" rel="noopener">(31) 99166-5958</a></li>
+      <li><small>Horário</small><span>Segunda a quinta, das 7h às 17h<br>Sexta, das 7h às 16h</span><br><span class="open-badge" id="openBadge"></span></li>
+      <li><small>Telefone fixo</small><a href="tel:+553138212803">(31) 3821-2803</a></li>
+      <li><small>Telefone fixo · WhatsApp</small><a href="tel:+5531991665958">(31) 99166-5958</a></li>
       <li><small>E-mail</small><a href="mailto:comercial@recalcaldeiraria.com.br">comercial@recalcaldeiraria.com.br</a></li>
       <li><small>Instagram</small><a href="https://www.instagram.com/recalcaldeiraria/" target="_blank" rel="noopener">@recalcaldeiraria</a></li>
     </ul>
-    <a class="btn btn--primary btn--lg" href="https://www.google.com/maps/dir/?api=1&amp;destination=Recal+Estruturas+e+Caldeiraria+Rua+Tarcisio+Sampaio+195+Ipatinga+MG" target="_blank" rel="noopener">Como chegar</a> <a class="btn btn--outline-light btn--lg" href="tel:+553138212803">Ligar agora</a>
+    <a class="btn btn--primary btn--lg" href="https://www.google.com/maps/dir/?api=1&amp;destination=Recal+Estruturas+e+Caldeiraria+Rua+Tarcisio+Sampaio+195+Ipatinga+MG" target="_blank" rel="noopener">Como chegar</a> <a class="btn btn--outline-light btn--lg" href="tel:+5531991665958">Ligar agora</a>
   </div>
 </section>
 </main>
@@ -626,7 +619,7 @@
 <footer class="footer">
   <div class="container footer__grid">
     <div>
-      <strong class="footer__logo">RECAL</strong>
+      <img class="footer__logo" src="img/logo-recal-negativo.svg?v=1" alt="Recal" width="598" height="391">
       <p>Estruturas e Caldeiraria · Indústria Mecânica.<br>Há mais de 20 anos no Vale do Aço.</p>
     </div>
     <div>
@@ -634,7 +627,7 @@
       <a href="#sobre">Empresa</a><a href="historia.html">Nossa história</a><a href="equipe.html">Nossa equipe</a><a href="#solucoes">Serviços</a><a href="#obras">Obras</a>
     </div>
     <div>
-      <p class="footer__h">Contato</p>
+      <p class="footer__h">Contatos fixos</p>
       <a href="tel:+553138212803">(31) 3821-2803</a><a href="https://wa.me/5531991665958" target="_blank" rel="noopener">(31) 99166-5958</a><a href="https://www.instagram.com/recalcaldeiraria/" target="_blank" rel="noopener">@recalcaldeiraria</a>
     </div>
     <div>
@@ -655,12 +648,12 @@
   </div>
 </footer>
 
-<a class="wpp-float" href="https://wa.me/5531991665958?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a class="wpp-float" href="https://wa.me/5531984028313?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Pedir orçamento no WhatsApp do Comercial">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
 </a>
-<script src="script.js?v=18"></script>
+<script src="script.js?v=19"></script>
 <script src="cookies.js?v=2"></script>
-<script src="hero.js?v=4"></script>
+<script src="hero.js?v=5"></script>
 <script src="abertura.js?v=12"></script>
 <script src="vendor/three-r128.min.js"></script>
 <script src="fabricacao.js?v=18"></script>

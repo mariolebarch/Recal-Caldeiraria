@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/fachada-recal.jpg?v=2">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg?v=1">
 <style>
 /* =====================================================================
    RECAL EM 90 SEGUNDOS · proposta v2 · linguagem "Aço e precisão" (DESIGN.md)
@@ -77,13 +78,10 @@ button{font:inherit;color:inherit}
 .s1 .ph img{object-position:100% 50%}
 .s1 .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,20,35,.92) 0%,rgba(7,20,35,.6) 42%,rgba(7,20,35,.15) 75%),linear-gradient(0deg,rgba(7,20,35,.95) 6%,transparent 60%)}
 .s1 .stage{justify-content:flex-end;padding-bottom:2vh}
-.s1 .logo{width:clamp(64px,7vw,96px);margin-bottom:2.6vh}
-.logo circle{fill:var(--green);transform-origin:center;transform:scale(0)}
-.logo .arr{fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
-.logo text{opacity:0}
-.sc.on .logo circle{animation:pop .7s var(--ease) .2s forwards}
-.sc.on .logo .arr{animation:dash .9s var(--ease) .7s forwards}
-.sc.on .logo text{animation:fade .5s 1.2s forwards}
+.logo-wrap{margin:0 0 1.4vh;line-height:0}
+.s1 .logo{display:block;height:clamp(150px,min(30vw,34vh),340px);width:auto;opacity:0;transform:scale(.86);filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
+.sc.on .s1 .logo,.s1.on .logo{animation:logoIn 1s var(--ease) .2s forwards}
+@keyframes logoIn{to{opacity:1;transform:none}}
 @keyframes pop{to{transform:scale(1)}}@keyframes dash{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}
 .s1 .h{font-size:clamp(84px,min(15vw,24vh),250px);letter-spacing:.02em;line-height:.82}
 .s1__sub{font-family:var(--head);font-weight:600;font-size:clamp(22px,min(3vw,5vh),46px);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.86);margin-top:1.4vh}
@@ -133,6 +131,8 @@ button{font:inherit;color:inherit}
 .spec small{display:block;font-family:var(--mono);font-size:clamp(10px,.9vw,12.5px);letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
 .spec b{display:block;margin-top:clamp(10px,2vh,20px);font-family:var(--head);font-weight:800;font-size:clamp(46px,min(6vw,11vh),104px);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .spec b u{text-decoration:none;font-size:.4em;color:var(--mint);margin-left:6px;letter-spacing:0}
+.spec b.b-pol{white-space:nowrap;font-size:clamp(34px,min(4.2vw,7.6vh),74px);min-height:calc(clamp(46px,min(6vw,11vh),104px) * .9);display:flex;align-items:flex-end}
+.spec b.b-pol u{margin:0 .55em}
 .spec h3{font-family:var(--head);font-weight:700;font-size:clamp(19px,1.8vw,27px);margin-top:clamp(8px,1.6vh,14px)}
 .spec p{font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.62);margin-top:4px;line-height:1.4}
 .spec .src{margin-top:0}
@@ -221,13 +221,16 @@ button{font:inherit;color:inherit}
 .contact{list-style:none;padding:0;margin-top:clamp(20px,4.4vh,44px);display:grid;gap:12px}
 .contact li{display:flex;align-items:center;gap:14px;font-size:clamp(16px,1.6vw,23px)}
 .contact svg{width:24px;height:24px;flex:none;fill:none;stroke:var(--mint);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.qr{justify-self:end;width:min(100%,340px);background:#fff;color:var(--ink);border-radius:12px;padding:clamp(16px,2vw,24px);text-align:center;box-shadow:0 0 0 10px rgba(159,240,191,.1),0 40px 80px -30px rgba(0,0,0,.75)}
+.qrs{justify-self:end;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,18px);width:min(100%,460px)}
+.qrs__cap{grid-column:1/-1;text-align:center;font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.8);margin:4px 0 0}
+.qr small{display:block;margin-top:12px;font-family:var(--mono,monospace);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1e9a52}
+.qr{background:#fff;color:var(--ink);border-radius:12px;padding:clamp(16px,2vw,24px);text-align:center;box-shadow:0 0 0 10px rgba(159,240,191,.1),0 40px 80px -30px rgba(0,0,0,.75)}
 .sc.on .qr{animation:up .9s var(--ease) .6s both}
 .qr__code{position:relative;overflow:hidden}
 .qr__code img{width:100%;image-rendering:pixelated}
 .qr__code::after{content:"";position:absolute;left:0;right:0;height:16%;top:-20%;background:linear-gradient(180deg,transparent,rgba(30,154,82,.35),transparent);animation:scan 2.6s ease-in-out infinite}
 @keyframes scan{to{top:104%}}
-.qr b{display:block;font-family:var(--head);font-weight:700;font-size:clamp(20px,1.9vw,27px);line-height:1.1;margin-top:12px}
+.qr b{display:block;font-family:var(--head);font-weight:700;font-size:clamp(18px,1.6vw,24px);line-height:1.1;margin-top:4px}
 .qr span{display:block;margin-top:4px;font-size:13px;color:#4b5a66}
 
 /* ---------- interface ---------- */
@@ -240,7 +243,7 @@ button{font:inherit;color:inherit}
 .chap button.cur span{color:#fff}
 .chap button:focus-visible{outline:2px solid var(--mint);outline-offset:2px;border-radius:2px}
 .brand{position:fixed;left:var(--pad);bottom:max(18px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:12px}
-.brand svg{width:34px;height:34px}
+.brand img{height:40px;width:auto;display:block}
 .brand>span{display:flex;flex-direction:column;line-height:1;font-family:var(--head);font-weight:700;letter-spacing:.08em;font-size:16px}
 .brand small{font-family:var(--body);font-weight:500;letter-spacing:.04em;font-size:11px;color:rgba(255,255,255,.65);margin-top:3px}
 .brand>.clock{display:block;line-height:1.2;letter-spacing:.14em;font-weight:400}
@@ -280,7 +283,7 @@ body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
   .proc b{grid-row:span 2}.proc h3{margin:0}
   .proof{grid-template-columns:1fr}
   .duo{height:30vh}
-  .qr{justify-self:start;width:min(100%,240px)}
+  .qrs{justify-self:start;width:min(100%,400px)}
   .s9 .lead,.s8 .lead{display:none}
   .pair{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:2vh}
   .card__tx{padding-top:1vh}
@@ -311,13 +314,7 @@ body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
     <div class="ph" style="--t:7s"><img src="img/fachada-recal.jpg?v=2" alt="" width="2000" height="667"></div>
     <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="stage">
-      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="32"/>
-        <path class="arr" d="M17 24a17 17 0 0 1 29-5M47 13l-1 7-7-1"/>
-        <path class="arr" d="M47 40a17 17 0 0 1-29 5M17 51l1-7 7 1"/>
-        <text x="32" y="38" text-anchor="middle" font-family="Barlow, Arial" font-weight="700" font-size="16" fill="#fff">Recal</text>
-      </svg>
-      <p class="h" translate="no"><span class="ln"><span style="--d:.9s">RECAL</span></span></p>
+      <div class="logo-wrap"><img class="logo" src="img/logo-recal-negativo.svg?v=1" alt="Recal" width="598" height="391"></div>
       <p class="s1__sub in" style="--d:1.3s">Estruturas e Caldeiraria</p>
       <div class="weld" aria-hidden="true"><i></i></div>
       <div class="meta in" style="--d:2s"><span>Desde 2003</span><span>Ipatinga · Vale do Aço</span><span>ISO 9001:2015</span></div>
@@ -365,15 +362,14 @@ body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
           <p class="idx in"><b>04</b> Capacidade instalada</p>
           <h2 class="h"><span class="ln"><span style="--d:.15s">Estrutura para</span></span><span class="ln"><span style="--d:.3s"><em>grande porte</em>.</span></span></h2>
         </div>
-        <p class="lead in" style="--d:.7s">Galpão, prensa, calandra e içamento dimensionados para peças de grande porte e chapas grossas.</p>
+        <p class="lead in" style="--d:.7s">Galpões com pontes rolantes, prensas, calandras, máquinas CNC e usinagem própria.</p>
       </div>
       <div class="spec">
-        <div class="in" style="--d:.5s"><small>01 · Área</small><b data-to="4965">0<u>m²</u></b><h3>Área total</h3><p>2.695 m² construídos</p></div>
+        <div class="in" style="--d:.5s"><small>01 · Área</small><b data-to="5000">0<u>m²</u></b><h3>Área total própria</h3><p>Galpões e produção próprios</p></div>
         <div class="in" style="--d:.65s"><small>02 · Conformação</small><b data-to="500">0<u>t</u></b><h3>Prensa hidráulica</h3><p>Conformação de chapas grossas</p></div>
-        <div class="in" style="--d:.8s"><small>03 · Calandragem</small><b data-to="38.1" data-dec="1">0<u>mm</u></b><h3>Calandra</h3><p>Chapas até 38,1 × 2.550 mm</p></div>
-        <div class="in" style="--d:.95s"><small>04 · Içamento</small><b data-to="15">0<u>t</u></b><h3>Pontes rolantes</h3><p>Capacidades de 15 t e 10 t</p></div>
+        <div class="in" style="--d:.8s"><small>03 · Calandragem</small><b class="b-pol">1"<u> e </u>1.1/2"</b><h3>Calandras</h3><p>Chapas de 1" e 1.1/2" (polegadas)</p></div>
+        <div class="in" style="--d:.95s"><small>04 · Içamento</small><b data-to="25">0<u>t</u></b><h3>Pontes rolantes</h3><p>Capacidades de 16 t e 25 t</p></div>
       </div>
-      <p class="src foot-src in" style="--d:1.3s">Fonte: Relatório de Sustentabilidade Recal 2023</p>
     </div>
   </section>
 
@@ -383,7 +379,7 @@ body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
       <p class="idx in"><b>05</b> O que fazemos</p>
       <h2 class="h"><span class="ln"><span style="--d:.15s">Do desenho do cliente</span></span><span class="ln"><span style="--d:.3s">à <em>peça entregue</em>.</span></span></h2>
       <div class="svc">
-        <div class="in" style="--d:.55s"><i aria-hidden="true">01</i><h3>Caldeiraria pesada, média e leve</h3><p>Conjuntos soldados de grande porte, tanques e cones antidesgaste.</p><ul><li>Corte · calandragem</li><li>Soldagem qualificada</li></ul></div>
+        <div class="in" style="--d:.55s"><i aria-hidden="true">01</i><h3>Caldeiraria leve, média e pesada</h3><p>Conjuntos soldados de grande porte, tanques e cones antidesgaste.</p><ul><li>Corte · calandragem</li><li>Soldagem qualificada</li></ul></div>
         <div class="in" style="--d:.7s"><i aria-hidden="true">02</i><h3>Dutos e peças flangeadas</h3><p>Curvas, derivações em Y e peças de distribuição.</p><ul><li>Grande diâmetro</li><li>Revestimento interno</li></ul></div>
         <div class="in" style="--d:.85s"><i aria-hidden="true">03</i><h3>Estruturas metálicas</h3><p>Fabricação e montagem de estruturas, bases e anéis estruturais.</p><ul><li>Fabricação</li><li>Montagem em campo</li></ul></div>
         <div class="in" style="--d:1s"><i aria-hidden="true">04</i><h3>Fabricação e recuperação</h3><p>Peças novas e recuperação de equipamentos, com foco em emergências.</p><ul><li>Peças de reposição</li><li>Atendimento rápido</li></ul></div>
@@ -488,10 +484,20 @@ body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
           <li class="in" style="--d:1.2s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>R. Tarcísio Sampaio, 195 · Distrito Industrial · Ipatinga/MG</li>
         </ul>
       </div>
-      <div class="qr">
-        <div class="qr__code"><img src="img/qr-whatsapp.svg" alt="QR code para falar com a Recal pelo WhatsApp (31) 99166-5958" width="512" height="512" loading="lazy"></div>
-        <b>Aponte a câmera e fale com a nossa engenharia</b>
-        <span>Abre o WhatsApp da Recal</span>
+      <div class="qrs">
+        <div class="qr">
+          <div class="qr__code"><img src="img/qr-eng-marcos.svg" alt="QR code para falar com o Engenheiro Marcos Antônio pelo WhatsApp +55 31 8807-6289" width="512" height="512" loading="lazy"></div>
+          <small>Engenharia</small>
+          <b>Eng. Marcos Antônio</b>
+          <span>+55 31 8807-6289</span>
+        </div>
+        <div class="qr">
+          <div class="qr__code"><img src="img/qr-diretor-walberte.svg" alt="QR code para falar com o Diretor Walberte Silva pelo WhatsApp +55 31 9166-5891" width="512" height="512" loading="lazy"></div>
+          <small>Diretoria</small>
+          <b>Walberte Silva</b>
+          <span>+55 31 9166-5891</span>
+        </div>
+        <p class="qrs__cap">Aponte a câmera e fale direto pelo WhatsApp</p>
       </div>
     </div>
   </section>
@@ -502,8 +508,8 @@ body.is-paused .paused{opacity:1;transform:translate(-50%,-50%)}
 <button class="tap tap--prev" id="tapPrev" type="button" tabindex="-1" aria-label="Cena anterior"></button>
 <button class="tap tap--next" id="tapNext" type="button" tabindex="-1" aria-label="Próxima cena"></button>
 <div class="brand">
-  <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#1e9a52"/><path d="M17 24a17 17 0 0 1 29-5M47 13l-1 7-7-1M47 40a17 17 0 0 1-29 5M17 51l1-7 7 1" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <span translate="no">RECAL<small>Estruturas e Caldeiraria</small></span>
+  <img src="img/logo-recal-negativo.svg?v=1" alt="Recal" width="598" height="391">
+  <span translate="no"><small>Estruturas e Caldeiraria</small></span>
   <span class="clock" id="clock" aria-hidden="true">00:00 <em>/ 01:30</em></span>
 </div>
 <div class="ctrl">

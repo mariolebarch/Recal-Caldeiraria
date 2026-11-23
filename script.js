@@ -1,6 +1,6 @@
 /* ===================== RECAL — script ===================== */
 (() => {
-  const WHATSAPP = '5531991665958';
+  const WHATSAPP = '5531984028313'; // Comercial: recebe os pedidos de orçamento
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
@@ -193,10 +193,11 @@
     startCycle();
   }
 
-  /* ---------- aberto agora? (seg–sex, 7h–17h) ---------- */
+  /* ---------- aberto agora? (seg–qui 7h–17h · sex 7h–16h) ---------- */
   const badge = $('#openBadge');
   const now = new Date();
-  const open = now.getDay() >= 1 && now.getDay() <= 5 && now.getHours() >= 7 && now.getHours() < 17;
+  const d = now.getDay(), fim = d === 5 ? 16 : 17;
+  const open = d >= 1 && d <= 5 && now.getHours() >= 7 && now.getHours() < fim;
   badge.textContent = open ? '● Aberto agora' : '● Fechado agora';
   badge.className = 'open-badge ' + (open ? 'on' : 'off');
 
@@ -209,7 +210,6 @@
   const sendBtns = $('#sendBtns');
   let step = 0;
 
-  $('#sheetId').textContent = 'RC-' + String(Math.floor(1000 + Math.random() * 9000));
 
   const val = n => (new FormData(form).get(n) || '').toString().trim();
   const data = () => {
@@ -336,7 +336,7 @@
     const d = data();
     const L = (label, v) => v ? `*${label}:* ${v}` : null;
     const lines = [
-      `*SOLICITAÇÃO DE ORÇAMENTO — ${$('#sheetId').textContent}*`,
+      `*SOLICITAÇÃO DE ORÇAMENTO*`,
       '',
       L('Demanda', d.demanda),
       L('Serviço', d.servico),

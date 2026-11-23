@@ -26,16 +26,23 @@ if(RM) return;
 let vis=true;
 new IntersectionObserver(([e])=>{vis=e.isIntersecting}).observe(document.querySelector('.hx2'));
 
+let busy=false;
 const next=()=>{
+  if(busy) return; busy=true;
   const el=kids()[2]; mark(el); place(el,true);
-  setTimeout(()=>{ tr.appendChild(kids()[0]); place(kids()[1],false); }, MOVE+50);  // recicla sem salto
+  setTimeout(()=>{ tr.appendChild(kids()[0]); place(kids()[1],false); busy=false; }, MOVE+50);  // recicla sem salto
 };
 
-// relógio fixo: troca em t0 + n×3s; se a aba/tela ficou parada, recomeça o relógio sem "atropelar"
-let t0=performance.now()+1000, n=0;
+// relógio fixo: troca em t0 + n×3s, no máximo UMA troca por vez.
+// Ao sair da aba (ou o topo sair da tela) o relógio recomeça do zero ao voltar,
+// para nunca "recuperar o atraso" passando várias peças em sequência.
+let t0=performance.now()+1000, n=0, last=performance.now();
+const restart=t=>{ t0=t+STEP; n=0; };
+document.addEventListener('visibilitychange',()=>restart(performance.now()));
 const loop=t=>{
-  if(document.hidden || !vis){ t0=t+STEP; n=0; }
-  else if(t>=t0+n*STEP){ n++; next(); }
+  if(document.hidden || !vis || t-last>500) restart(t);
+  else if(t>=t0+n*STEP){ n=Math.floor((t-t0)/STEP)+1; next(); }
+  last=t;
   requestAnimationFrame(loop);
 };
 requestAnimationFrame(loop);
