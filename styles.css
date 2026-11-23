@@ -906,3 +906,9 @@ img.footer__logo{display:block;width:auto;height:64px;margin-bottom:14px}
 .spec b.b-pol{display:flex;align-items:flex-end;min-height:calc(clamp(46px,4.6vw,72px) * .95)}
 .nums b.b-pol{font-size:clamp(30px,3vw,44px)}
 .spec b.b-pol small,.nums b.b-pol small{margin:0 .55em}
+/* Trabalhos realizados: rótulo maior e mais perto das fotos */
+.split.split--tight{margin-bottom:6px}
+.idx.idx--lg{font-size:15px;margin-bottom:18px}
+/* aproxima Trabalhos realizados de "Da chapa à peça" */
+#trabalhos.sx{padding-bottom:clamp(36px,4vw,56px)}
+.section.cone-intro{padding-top:clamp(36px,4vw,56px)}

@@ -41,10 +41,10 @@
 @media (prefers-reduced-motion:reduce){.hx2__lines i{animation:none;transform:none}.gl__track,.gl__it{transition:none}}
 
 /* selo ISO 9001 em destaque sobre a foto */
-.hx2__tag--iso{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;background:#0b1d33;border:1px solid rgba(110,231,161,.35);box-shadow:0 22px 44px -18px rgba(0,0,0,.7),0 0 0 4px rgba(30,154,82,.18)}
-.hx2__tag--iso .iso__seal{margin:0;flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#1e9a52;box-shadow:inset 0 0 0 3px rgba(255,255,255,.18)}
-.iso__seal svg{width:34px;height:34px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
-.hx2__tag--iso .iso__tx small{display:block;font-family:var(--mono,monospace);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
-.hx2__tag--iso .iso__tx b{display:block;margin:2px 0 1px;font-family:var(--head);font-size:30px;line-height:1;color:#fff;letter-spacing:.01em}
-.hx2__tag--iso .iso__tx em{display:block;font-style:normal;font-size:12px;color:rgba(255,255,255,.78)}
+.hx2__tag--iso{display:flex;align-items:center;gap:10px;padding:9px 14px 9px 9px;background:#0b1d33;border:1px solid rgba(110,231,161,.35);box-shadow:0 22px 44px -18px rgba(0,0,0,.7),0 0 0 4px rgba(30,154,82,.18)}
+.hx2__tag--iso .iso__seal{margin:0;flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#1e9a52;box-shadow:inset 0 0 0 3px rgba(255,255,255,.18)}
+.iso__seal svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.hx2__tag--iso .iso__tx small{display:block;font-family:var(--mono,monospace);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint)}
+.hx2__tag--iso .iso__tx b{display:block;margin:2px 0 1px;font-family:var(--head);font-size:23px;line-height:1;color:#fff;letter-spacing:.01em}
+.hx2__tag--iso .iso__tx em{display:block;font-style:normal;font-size:11px;color:rgba(255,255,255,.78)}
 .hx2__tag--iso .iso__tx{margin:0}
