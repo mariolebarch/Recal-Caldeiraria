@@ -912,3 +912,6 @@ img.footer__logo{display:block;width:auto;height:64px;margin-bottom:14px}
 /* aproxima Trabalhos realizados de "Da chapa à peça" */
 #trabalhos.sx{padding-bottom:clamp(36px,4vw,56px)}
 .section.cone-intro{padding-top:clamp(36px,4vw,56px)}
+/* ícone do Instagram no topo um pouco maior */
+.topbar a[aria-label="Instagram"]{display:inline-flex;align-items:center}
+.topbar a[aria-label="Instagram"] svg{width:18px;height:18px}
